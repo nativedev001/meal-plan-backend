@@ -15,19 +15,20 @@ async function bootstrap() {
     }),
   );
 
- app.enableCors({
+app.enableCors({
   origin: [
     'http://localhost:3000',
     'http://localhost:3001',
     'http://localhost:3002',
     'https://meal-plan-fontend-pi.vercel.app',
     'https://meal-plan-fontend-git-main-nativedev001s-projects.vercel.app',
-    'https://unperplexing-sphygmomanometric-erlinda.ngrok-free.dev' 
+    'https://unperplexing-sphygmomanometric-erlinda.ngrok-free.dev'
   ],
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
-  allowedHeaders: ['Content-Type', 'Authorization'], 
+  allowedHeaders: ['Content-Type', 'Authorization', 'Accept'],
   credentials: true,
 });
+
 
 
  
