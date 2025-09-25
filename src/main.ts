@@ -15,11 +15,17 @@ async function bootstrap() {
     }),
   );
 
-   app.enableCors({
-    origin: ['http://localhost:3000', 'http://localhost:3001', 'http://localhost:3002'],
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
-    credentials: true, 
-  });
+ app.enableCors({
+  origin: [
+    'http://localhost:3000',
+    'http://localhost:3001',
+    'http://localhost:3002',
+    'https://meal-plan-fontend-pi.vercel.app',
+    'https://meal-plan-fontend-git-main-nativedev001s-projects.vercel.app'
+  ],
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+  credentials: true,
+});
 
  
   const config = new DocumentBuilder()
