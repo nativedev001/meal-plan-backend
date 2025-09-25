@@ -1,5 +1,8 @@
 🍽️ Meal Planner Backend (NestJS)
 <p align="center"> <a href="https://nestjs.com/" target="_blank"> <img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /> </a> </p> <p align="center"> A backend API built with <a href="https://nestjs.com/" target="_blank">NestJS</a> for managing user authentication, profile data, and meal planning. </p>
+
+Swagger Live api : https://meal-plan-backend-production.up.railway.app/api
+Deployed Backend Link : https://meal-plan-backend-production.up.railway.app/
 ✨ Features
 
 Authentication: User signup & login with JWT-based authentication.
