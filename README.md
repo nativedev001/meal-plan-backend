@@ -3,6 +3,7 @@
 
 Swagger Live api : https://meal-plan-backend-production.up.railway.app/api
 Deployed Backend Link : https://meal-plan-backend-production.up.railway.app/
+
 ✨ Features
 
 Authentication: User signup & login with JWT-based authentication.
