@@ -21,11 +21,14 @@ async function bootstrap() {
     'http://localhost:3001',
     'http://localhost:3002',
     'https://meal-plan-fontend-pi.vercel.app',
-    'https://meal-plan-fontend-git-main-nativedev001s-projects.vercel.app'
+    'https://meal-plan-fontend-git-main-nativedev001s-projects.vercel.app',
+    'https://unperplexing-sphygmomanometric-erlinda.ngrok-free.dev' 
   ],
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+  allowedHeaders: ['Content-Type', 'Authorization'], 
   credentials: true,
 });
+
 
  
   const config = new DocumentBuilder()
