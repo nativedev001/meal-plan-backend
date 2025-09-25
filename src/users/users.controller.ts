@@ -1,26 +1,46 @@
-import { Controller, Post, Get, Body, Param } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Patch,
+  Delete,
+  Body,
+  UseGuards,
+  Req,
+} from '@nestjs/common';
 import { UsersService } from './users.service';
-import { CreateUserDto } from '../dto/create-user.dto';
+import { UpdateUserDto } from '../dto/update-user.dto';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
+import { ApiBearerAuth, ApiTags, ApiBody } from '@nestjs/swagger';
 
+@ApiTags('users')
+@ApiBearerAuth('access-token')
+@UseGuards(JwtAuthGuard)
 @Controller('users')
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
-  // signup endpoint
-  @Post('signup')
-  async create(@Body() createUserDto: CreateUserDto) {
-    return this.usersService.create(createUserDto);
+  @Get('me')
+  async getProfile(@Req() req: any) {
+    return this.usersService.findById(req.user.userId);
   }
 
-  // get all users (optional)
-  @Get()
-  async findAll() {
-    return 'This will return all users later';
+@Patch('me')
+@ApiBody({
+  schema: {
+    example: {
+      dietaryRestrictions: 'gluten-free',
+    },
+  },
+})
+async updateProfile(@Req() req: any, @Body() data: UpdateUserDto) {
+  if (!req.user) {
+    console.log('Unauthorized: req.user is undefined');
   }
+  return this.usersService.update(req.user.userId, data);
+}
 
-  // get user by id
-  @Get(':id')
-  async findOne(@Param('id') id: string) {
-    return this.usersService.findById(id);
+  @Delete('me')
+  async deleteAccount(@Req() req: any) {
+    return this.usersService.delete(req.user.userId);
   }
 }

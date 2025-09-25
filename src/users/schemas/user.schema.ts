@@ -12,8 +12,16 @@ export class User {
   @Prop({ required: true })
   password: string;
 
-  @Prop([String])
-  dietaryRestrictions?: string[];
+  @Prop({ default: '' })
+  dietaryRestrictions?: string;
+
+  // Track last update
+  @Prop({ type: Date, default: null })
+  lastUpdatedAt?: Date;
+
+  // Reset flag for Sunday
+  @Prop({ type: Boolean, default: true })
+  canUpdateProfile?: boolean;
 }
 
 

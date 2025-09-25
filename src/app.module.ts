@@ -4,10 +4,13 @@ import { DatabaseModule } from './database/database.module';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { DietaryModule } from './dietary/dietary.module';
+import { ScheduleModule } from '@nestjs/schedule';
+
 
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
+    ScheduleModule.forRoot(),
     DatabaseModule,
     AuthModule,
     UsersModule,
